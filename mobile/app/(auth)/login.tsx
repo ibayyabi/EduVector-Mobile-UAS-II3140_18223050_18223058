@@ -17,21 +17,81 @@ export default function LoginScreen() {
     const [isRegisterMode, setIsRegisterMode] = useState(false);
 
 
+// Helper untuk validasi email
+    const isValidEmail = (email: string) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    // Helper untuk mapping error Firebase ke Bahasa Indonesia yang ramah
+    const getFriendlyErrorMessage = (errorCode: string) => {
+        switch (errorCode) {
+            case 'auth/invalid-email':
+                return 'Format email tidak valid.';
+            case 'auth/user-disabled':
+                return 'Akun ini telah dinonaktifkan.';
+            case 'auth/user-not-found':
+            case 'auth/invalid-credential':
+                return 'Email atau password salah.';
+            case 'auth/wrong-password':
+                return 'Email atau password salah.';
+            case 'auth/email-already-in-use':
+                return 'Email ini sudah terdaftar. Silakan login.';
+            case 'auth/weak-password':
+                return 'Password terlalu lemah. Gunakan minimal 6 karakter.';
+            case 'auth/network-request-failed':
+                return 'Koneksi internet bermasalah. Cek jaringan Anda.';
+            case 'auth/too-many-requests':
+                return 'Terlalu banyak percobaan gagal. Coba lagi nanti.';
+            default:
+                return 'Terjadi kesalahan. Silakan coba lagi.';
+        }
+    };
+
+    const validateInputs = () => {
+        if (!email.trim()) {
+            return 'Email tidak boleh kosong.';
+        }
+        if (!isValidEmail(email)) {
+            return 'Format email tidak valid (contoh: user@email.com).';
+        }
+        if (!password) {
+            return 'Password tidak boleh kosong.';
+        }
+        if (isRegisterMode && password.length < 6) {
+            return 'Password harus minimal 6 karakter.';
+        }
+        return null;
+    };
 
     const handleEmailLogin = async () => {
-        if (!email || !password) {
-            return;
+        const validationError = validateInputs();
+        if (validationError) {
+             setLocalError(validationError);
+             return;
         }
+
+        setLocalError(null); // Clear local error
+
         try {
             if (isRegisterMode) {
                 await register(email, password);
             } else {
                 await loginWithEmail(email, password);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
         }
     };
+
+    // State lokal untuk validasi instan sebelum hit firebase
+    const [localError, setLocalError] = useState<string | null>(null);
+
+    // Gabungkan error dari context dan local
+    const displayError = localError || (error ? getFriendlyErrorMessage(error) : null);
+
+
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -68,9 +128,9 @@ export default function LoginScreen() {
                             {isRegisterMode ? 'Buat akun baru untuk memulai' : 'Masuk untuk melanjutkan petualangan belajar Anda'}
                         </Text>
 
-                        {error && (
+                        {displayError && (
                             <View style={styles.errorContainer}>
-                                <Text style={styles.errorText}>{error}</Text>
+                                <Text style={styles.errorText}>{displayError}</Text>
                             </View>
                         )}
 
