@@ -15,7 +15,10 @@ export default function LoginScreen() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isRegisterMode, setIsRegisterMode] = useState(false);
-
+    
+    // State lokal untuk validasi instan sebelum hit firebase
+    const [localError, setLocalError] = useState<string | null>(null);
+    const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
 // Helper untuk validasi email
     const isValidEmail = (email: string) => {
@@ -72,10 +75,16 @@ export default function LoginScreen() {
         }
 
         setLocalError(null); // Clear local error
+        setSuccessMessage(null);
 
         try {
             if (isRegisterMode) {
                 await register(email, password);
+                // Registration successful logic
+                setSuccessMessage('Registrasi berhasil! Silakan login untuk melanjutkan.');
+                setIsRegisterMode(false); // Switch back to login mode
+                setPassword(''); // Clear password for security
+                // Email kept pre-filled for convenience
             } else {
                 await loginWithEmail(email, password);
             }
@@ -83,9 +92,6 @@ export default function LoginScreen() {
             console.error(error);
         }
     };
-
-    // State lokal untuk validasi instan sebelum hit firebase
-    const [localError, setLocalError] = useState<string | null>(null);
 
     // Gabungkan error dari context dan local
     const displayError = localError || (error ? getFriendlyErrorMessage(error) : null);
@@ -127,6 +133,12 @@ export default function LoginScreen() {
                         <Text style={styles.instructionText}>
                             {isRegisterMode ? 'Buat akun baru untuk memulai' : 'Masuk untuk melanjutkan petualangan belajar Anda'}
                         </Text>
+
+                        {successMessage && (
+                            <View style={styles.successContainer}>
+                                <Text style={styles.successText}>{successMessage}</Text>
+                            </View>
+                        )}
 
                         {displayError && (
                             <View style={styles.errorContainer}>
@@ -173,7 +185,11 @@ export default function LoginScreen() {
                         </TouchableOpacity>
 
                         {/* Toggle Register/Login */}
-                        <TouchableOpacity onPress={() => setIsRegisterMode(!isRegisterMode)} disabled={loading}>
+                        <TouchableOpacity onPress={() => {
+                            setIsRegisterMode(!isRegisterMode);
+                            setSuccessMessage(null); // Clear success message when toggling
+                            setLocalError(null);
+                        }} disabled={loading}>
                             <Text style={styles.toggleText}>
                                 {isRegisterMode ? 'Sudah punya akun? Masuk' : 'Belum punya akun? Daftar'}
                             </Text>
@@ -362,6 +378,21 @@ const styles = StyleSheet.create({
         color: '#ef4444',
         textAlign: 'center',
         fontSize: 12,
+    },
+    successContainer: {
+        backgroundColor: '#dcfce7',
+        padding: 10,
+        borderRadius: 8,
+        marginBottom: 15,
+        width: '100%',
+        borderWidth: 1,
+        borderColor: '#bbf7d0',
+    },
+    successText: {
+        color: '#15803d',
+        textAlign: 'center',
+        fontSize: 12,
+        fontWeight: '500',
     },
     privacyText: {
         fontSize: 10,
