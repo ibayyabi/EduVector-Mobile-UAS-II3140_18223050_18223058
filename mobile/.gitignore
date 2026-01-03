@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+
+# expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# native
+ios/
+android/
+
+# local env files
+.env*.local
+.env
+
+# firebase/google services
+google-services.json
+GoogleService-Info.plist
+
+# typescript
+*.tsbuildinfo
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store

@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "EduVektor Mobile",
+    "slug": "eduvektor-mobile",
+    "scheme": "eduvektor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/fav_nobg.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/edvek-Photoroom.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/fav_nobg.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.ikhbarr.eduvektormobile",
+      "googleServicesFile": "./google-services.json"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-web-browser",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "fa345426-f104-407a-b7e8-2b7c3f5eebbf"
+      }
+    }
+  }
+}
