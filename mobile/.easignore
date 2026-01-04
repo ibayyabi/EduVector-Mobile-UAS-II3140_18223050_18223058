@@ -1,0 +1,12 @@
+# defaults
+node_modules/
+.expo/
+dist/
+web-build/
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.DS_Store
+
+# We intentionally do NOT ignore .env and google-services.json here
+# so they are included in the build.
