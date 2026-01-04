@@ -83,6 +83,6 @@ Proyek ini disusun oleh:
 
 | NIM | Nama |
 | :--- | :--- |
-| **18223050** | Mochamad Ikhbar A |
+| **18223050** | Mochamad Ikhbar Adiwinangun |
 | **18223058** | Alghan Pridanusuta |
 ---
