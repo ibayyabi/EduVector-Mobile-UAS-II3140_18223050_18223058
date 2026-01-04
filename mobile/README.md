@@ -1,43 +1,88 @@
-# EduVektor Mobile App
+# EduVector Mobile
 
-A React Native mobile application for EduVektor, built with Expo.
+**EduVector** adalah platform pembelajaran interaktif berbasis mobile yang dirancang untuk membantu mahasiswa memahami konsep vektor melalui visualisasi, simulasi, dan materi yang komprehensif. Aplikasi ini dikembangkan sebagai pemenuhan Tugas Besar (UAS) mata kuliah **II3140 PAWM**.
 
-## Features
+## Fitur Utama
 
-- **Materi**: Interactive learning materials with mathematical equations (using KaTeX).
-- **Simulasi**: Vector visualization playground to experiment with vector addition.
-- **Kuis**: Practice quizzes to test your knowledge.
-- **Profile**: User management.
+Aplikasi ini mencakup berbagai fitur untuk mendukung pembelajaran vektor:
 
-## Tech Stack
+### 1. Simulasi Interaktif
+Fitur unggulan yang memungkinkan pengguna berinteraksi langsung dengan konsep vektor:
+* **Vektor Kartesius:** Visualisasi penjumlahan vektor 2D dengan sistem *drag & drop* untuk memahami resultan gaya.
+* **Palet RGB:** Eksplorasi operasi vektor dalam ruang warna RGB untuk melihat bagaimana vektor matematika menghasilkan warna visual.
+* **Proyektor Vektor:** Simulasi gerak parabola/peluru menggunakan prinsip fisika vektor.
 
-- **Expo**: Framework for React Native.
-- **NativeWind**: Tailwind CSS for React Native.
-- **Firebase**: Authentication and Firestore.
-- **Expo Router**: File-based routing.
-- **React Native SVG**: For vector visualization.
-- **React Native WebView**: For rendering complex markdown and math.
+### 2. Modul Pembelajaran
+* Materi teori lengkap tentang vektor.
+* Penjelasan konsep dasar hingga lanjut.
 
-## Getting Started
+### 3. Kuis & Evaluasi
+* Sistem kuis interaktif untuk menguji pemahaman pengguna.
+* Pelacakan skor dan progres belajar.
 
-1.  **Install Dependencies**:
+### 4. Personalisasi
+* **Autentikasi Pengguna:** Login dan Register terintegrasi (Firebase).
+* **User Stats:** Memantau perkembangan belajar pengguna.
+* **Gamifikasi:** Sistem level atau pencapaian.
+
+
+## Teknologi yang Digunakan (Tech Stack)
+
+Proyek ini dibangun menggunakan teknologi modern untuk pengembangan aplikasi mobile:
+
+* **Core Framework:** [React Native](https://reactnative.dev/) dengan [Expo](https://expo.dev/) (SDK 54).
+* **Language:** [TypeScript](https://www.typescriptlang.org/).
+* **Routing/Navigation:** [Expo Router](https://docs.expo.dev/router/introduction/).
+* **Styling:** [NativeWind](https://www.nativewind.dev/) (TailwindCSS untuk React Native).
+* **Backend & Auth:** [Firebase](https://firebase.google.com/).
+* **Graphics & Animation:**
+    * `@shopify/react-native-skia`.
+    * `react-native-reanimated`.
+    * `react-native-svg`.
+* **Charts/Visualisasi Data:** `react-native-gifted-charts` & `react-native-chart-kit`.
+* **Lainnya:**
+    * `react-native-copilot` (tutorial aplikasi).
+    * `react-native-math-view` (Rendering notasi matematika).
+
+
+## Cara Menjalankan
+
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lokal komputer Anda:
+
+### Prasyarat
+* Node.js
+* npm
+* Aplikasi **Expo Go** di HP Anda atau Emulator.
+
+### Langkah Instalasi
+
+1.  **Clone Repositori**
+    ```bash
+    git clone [https://github.com/ibayyabi/EduVector-Mobile-UAS-II3140_18223050_18223058.git](https://github.com/ibayyabi/EduVector-Mobile-UAS-II3140_18223050_18223058.git)
+    cd EduVector-Mobile-UAS-II3140_18223050_18223058/mobile
+    ```
+
+2.  **Install Dependencies**
     ```bash
     npm install
     ```
 
-2.  **Environment Setup**:
-    -   Ensure you have a `.env` file with your Firebase configuration (see `.env_example` in the root or copy from your web project).
-    -   Example: `EXPO_PUBLIC_API_KEY=...`
-
-3.  **Run the App**:
+3.  **Konfigurasi Environment**
+    Salin file `.env.example` menjadi `.env` dan isi konfigurasi Firebase Anda:
     ```bash
-    npx expo start -c
+    cp .env.example .env
     ```
 
-4.  **Test on Device**:
-    -   Download the **Expo Go** app on iOS or Android.
-    -   Scan the QR code displayed in the terminal.
+4.  **Jalankan Aplikasi**
+    ```bash
+    npx expo start
+    ```
 
-## Troubleshooting
 
--   **Black Screen / No Styles**: Ensure `metro.config.js` is present and correctly configured with `nativewind`. Run `npx expo start -c` to clear the bundler cache.
+Proyek ini disusun oleh:
+
+| NIM | Nama |
+| :--- | :--- |
+| **18223050** | Mochamad Ikhbar A |
+| **18223058** | Alghan Pridanusuta |
+---
