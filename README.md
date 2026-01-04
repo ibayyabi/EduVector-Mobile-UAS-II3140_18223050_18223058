@@ -86,5 +86,3 @@ Proyek ini disusun oleh:
 | **18223050** | Mochamad Ikhbar A |
 | **18223058** | Alghan Pridanusuta |
 ---
-
-## 📂 Struktur Proyek
