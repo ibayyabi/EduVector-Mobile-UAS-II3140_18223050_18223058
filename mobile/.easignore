@@ -10,3 +10,4 @@ yarn-error.*
 
 # We intentionally do NOT ignore .env and google-services.json here
 # so they are included in the build.
+!android/app/google-services.json
