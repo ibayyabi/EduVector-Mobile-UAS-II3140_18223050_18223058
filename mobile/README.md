@@ -1,6 +1,6 @@
-# EduVector Mobile
+# EduVektor Mobile
 
-**EduVector** adalah platform pembelajaran interaktif berbasis mobile yang dirancang untuk membantu mahasiswa memahami konsep vektor melalui visualisasi, simulasi, dan materi yang komprehensif. Aplikasi ini dikembangkan sebagai pemenuhan Tugas Besar (UAS) mata kuliah **II3140 PAWM**.
+**EduVektor** adalah platform pembelajaran interaktif berbasis mobile yang dirancang untuk membantu mahasiswa memahami konsep vektor melalui visualisasi, simulasi, dan materi yang komprehensif. Aplikasi ini dikembangkan sebagai pemenuhan Tugas Besar (UAS) mata kuliah **II3140 PAWM**.
 
 ## Fitur Utama
 
