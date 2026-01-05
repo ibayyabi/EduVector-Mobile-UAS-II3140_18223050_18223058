@@ -86,3 +86,7 @@ Proyek ini disusun oleh:
 | **18223050** | Mochamad Ikhbar Adiwinangun |
 | **18223058** | Alghan Pridanusuta |
 ---
+
+Berikut adalah link host dan aplikasi
+EduVector web : https://edu-vector-mobile-uas-ii-3140-18223.vercel.app/
+EduVector mobile app : https://drive.google.com/file/d/1iGf-7jXlJ1DFDF6mzBcvgErHOtuRsU6n/view?usp=sharing
